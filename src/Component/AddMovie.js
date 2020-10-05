@@ -15,7 +15,10 @@ const AddMovie = (props) => {
     e.preventDefault();
     let newTab = [];
     let currentState = props.tab;
-    newTab = [...currentState, title]; //how to add others state ???
+    newTab = [
+      ...currentState,
+      { title, posterUrl, description, image, rating },
+    ]; //how to add others state ???
     console.log(newTab);
   };
 

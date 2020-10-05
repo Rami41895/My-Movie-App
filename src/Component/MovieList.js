@@ -11,7 +11,7 @@ class Cards extends Component {
         {
           _id: "1",
           title: "DORRA",
-          posterUrl: "www.movie1.com",
+          posterUrl: "www.google.com",
           description:
             "Dora and the Lost City directed by James Bobin with Isabela Merced ",
           image: "/images/M1.jpg",
@@ -45,12 +45,51 @@ class Cards extends Component {
           rating: 3,
         },
       ],
-      title: "",
+      currentlist: [
+        {
+          _id: "1",
+          title: "DORRA",
+          posterUrl: "www.google.com",
+          description:
+            "Dora and the Lost City directed by James Bobin with Isabela Merced ",
+          image: "/images/M1.jpg",
+          rating: 4.5,
+        },
+        {
+          _id: "2",
+          title: "JOHN WICK",
+          posterUrl: "www.movie2.com",
+          description:
+            "John Wick is an American film series featuring Keanu Reeve",
+          image: "/images/M2.jpg",
+          rating: 3.5,
+        },
+        {
+          _id: "3",
+          title: "TENET",
+          posterUrl: "www.movie3.com",
+          description:
+            "Tenet is a British-American film directed by Christopher Nolan.",
+          image: "/images/M3.jpg",
+          rating: 4,
+        },
+        {
+          _id: "4",
+          title: "BAAGHI 3",
+          posterUrl: "www.movie4.com",
+          description:
+            "Produced by Nadiadwala Grandson Entertainment and Fox Star Studios",
+          image: "/images/M4.jpg",
+          rating: 3,
+        },
+      ],
     };
+    
   }
+ 
 
   filterMovie = (e) => {
-    console.log(e.target.value.toUpperCase());
+    
     if (e.target.value !== "") {
       this.setState({
         title: e.target.value,
@@ -60,14 +99,14 @@ class Cards extends Component {
         ),
       });
     } else {
-      this.setState({ title: e.target.value, list: this.state.list });
+       return this.setState({ title: e.target.value, list: this.state.currentlist });
     }
   };
 
   render() {
     return (
       <>
-        <Search filterMovie={this.filterMovie} title={this.state.title} />
+        <Search filterMovie={this.filterMovie} title={this.state.title}  />
 
         <div className="container-fluid d-flex justify-content-center">
           <div className="row">
@@ -78,6 +117,8 @@ class Cards extends Component {
                   Title={movie.title}
                   description={movie.description}
                   rating={movie.rating}
+                  posterUrl={movie.posterUrl}
+                  id={movie._id}
                 />
               </div>
             ))}
