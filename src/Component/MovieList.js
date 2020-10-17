@@ -86,6 +86,7 @@ class Cards extends Component {
     };
     
   }
+  useState=[card,useCards]=useState{list:[ ]}
  
 
   filterMovie = (e) => {
